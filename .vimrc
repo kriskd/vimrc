@@ -225,4 +225,6 @@ Bundle "scrooloose/nerdtree"
 Bundle "tpope/vim-fugitive"
 Bundle "kien/ctrlp.vim"
 Bundle "awidox/vim-buffer-explorer-plugin"
+Bundle "editorconfig/editorconfig-vim"
+
 filetype plugin indent on
