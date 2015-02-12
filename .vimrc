@@ -17,6 +17,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 let g:ctrlp_show_hidden =1
+let g:ctrlp_working_path_mode = 0
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -73,7 +74,7 @@ set mat=2
 
 " No annoying sound on errors
 set noerrorbells
-set novisualbell
+set visualbell
 set t_vb=
 set tm=500
 
@@ -135,6 +136,15 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)|\.sass-cache|node_modules|tmp|build|dist|bower_components|Lib\/puphpet|Vendor$|vendor$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'Cake',
+  \ }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -224,5 +234,12 @@ Bundle "tpope/vim-fugitive"
 Bundle "kien/ctrlp.vim"
 Bundle "awidox/vim-buffer-explorer-plugin"
 Bundle "editorconfig/editorconfig-vim"
+Bundle "cakebaker/scss-syntax.vim"
+Bundle 'groenewege/vim-less'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'ntpeters/vim-better-whitespace'
 
 filetype plugin indent on
+
+execute pathogen#infect()
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
