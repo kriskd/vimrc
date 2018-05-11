@@ -4,6 +4,9 @@
 " Sets how many lines of history VIM has to remember
 set history=700
 
+" Turn on line numbers
+set number
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -119,7 +122,10 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-set autoindent
+" Now I'm going to use tabs
+" set noexpandtab
+
+" set autoindent
 
 " Be smart when using tabs ;)
 set smarttab
@@ -140,7 +146,7 @@ set wrap "Wrap lines
 
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)|\.sass-cache|node_modules|tmp|build|dist|bower_components|Lib\/puphpet|Vendor$|vendor$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)|\.sass-cache|node_modules|webroot\/coverage|tmp|build|dist|bower_components|Lib\/puphpet|Vendor$|vendor$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'Cake',
   \ }
@@ -238,8 +244,12 @@ Bundle "cakebaker/scss-syntax.vim"
 Bundle 'groenewege/vim-less'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'vim-syntastic/syntastic'
 
 filetype plugin indent on
 
-execute pathogen#infect()
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_scss_checkers = []
+let g:EditorConfig_core_mode = 'external_command'
+
+Plugin 'mileszs/ack.vim'
